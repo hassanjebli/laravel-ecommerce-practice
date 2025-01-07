@@ -1,1 +1,1 @@
-laravel with bootstrap
+small laravel ecommerce application
