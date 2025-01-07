@@ -1,4 +1,4 @@
-<x-base-layout title="Create Product">
+<x-base-layout title="Edit Product">
     <div class="bg-light p-5">
         <h1>Update Product</h1>
         <form action="{{ route('products.update', $product) }}" method="POST" enctype="multipart/form-data">
@@ -55,6 +55,22 @@
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control" id="description" name="description" rows="3">{{ old('description', $product->description) }}</textarea>
                 @error('description')
+                    <div class="text-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select name="category_id" class="form-select">
+                    <option value="">Select a Category....</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" @selected(old('category_id', $product->category_id) == $category->id)>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('category_id')
                     <div class="text-danger">
                         {{ $message }}
                     </div>

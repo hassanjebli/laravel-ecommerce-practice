@@ -53,6 +53,22 @@
                     </div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select name="category_id" class="form-select">
+                    <option value="">Select a Category....</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" @selected(old('category_id') == $category->id)>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('category_id')
+                    <div class="text-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
 
             <button type="submit" class="btn btn-primary w-100">Submit</button>
 

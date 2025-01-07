@@ -11,6 +11,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Quantity</th>
+                    <th scope="col">Category</th>
                     <th scope="col">Image</th>
                     <th scope="col">Price</th>
                     <th scope="col">Description</th>
@@ -23,6 +24,7 @@
                         <td> {{ $product->id }} </td>
                         <td> {{ $product->name }} </td>
                         <td> {{ $product->quantity }} </td>
+                        <td> {{ $product->category->name }} </td>
                         <td>
                             <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
                                 width="150px">
@@ -44,7 +46,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="7" class="text-center">
+                        <td colspan="8" class="text-center">
                             <h6>
                                 There is no products....
                                 <a href="{{ route('products.create') }}">Create Product</a>

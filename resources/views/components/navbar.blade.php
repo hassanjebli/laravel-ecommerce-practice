@@ -15,6 +15,10 @@
                     <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" aria-current="page"
                         href="{{ route('products.index') }}">Products</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}" aria-current="page"
+                        href="{{ route('categories.index') }}">Categories</a>
+                </li>
             </ul>
         </div>
     </div>
